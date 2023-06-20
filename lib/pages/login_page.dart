@@ -5,6 +5,7 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_label
     Color:
     Colors.white;
     return Material(
@@ -13,9 +14,40 @@ class LoginPage extends StatelessWidget {
           Image.asset(
             "assets/images/login_page.png",
             fit: BoxFit.cover,
+          ),
+          SizedBox(
+            height: 20,
+          ), //we can use this for spacing
+          Text(
+            "Welcome",
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 40),
+            child: Column(
+              children: [
+                TextFormField(
+                  decoration: InputDecoration(
+                      hintText: "Enter username", labelText: "userName"),
+                ),
+                TextFormField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                      hintText: "Enter password", labelText: "password"),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                ElevatedButton(
+                  child: Text("Login"),
+                  onPressed: () => {},
+                )
+              ],
+            ),
           )
         ],
       ),
+
       //     child: Center(
       //   child: Text(
       //     "Login Page",
