@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
         child: Center(
             child: Text(
           "Welcome to $day my new App",
-          style: TextStyle(color: Color.fromRGBO(72, 2, 112, 1)),
+          style: TextStyle(color: Color.fromRGBO(32, 2, 49, 1)),
         )),
       ),
       drawer: Drawer(),
