@@ -1,8 +1,11 @@
+import "dart:ffi";
+
 import "package:flutter/material.dart";
 import "package:flutter_catalog/utils/routes.dart";
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  // const LoginPage({super.key});
+  bool changeButton = false;
 
   @override
   Widget build(BuildContext context) {
@@ -39,12 +42,40 @@ class LoginPage extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
-                ElevatedButton(
-                  child: Text("Login"),
-                  style: TextButton.styleFrom(minimumSize: Size(150, 40)),
-                  onPressed: () =>
-                      {Navigator.pushNamed(context, MyRoute.homeRoute)},
-                )
+
+                InkWell (
+                  onTap: () async {
+                    changeButton = true;
+                    print("value is $changeButton");
+                    await Future.delayed(Duration(seconds: 1));
+                    Navigator.pushNamed(context, MyRoute.homeRoute);
+                  },
+                  child: AnimatedContainer(
+                    duration: Duration(seconds: 1),
+                    height: 50,
+                    width: changeButton ? 50 : 150,
+                    // color: Colors.deepPurpleAccent,
+                    alignment: Alignment.center,
+                    child: changeButton ? Icon(Icons.done,color: Colors.white,)
+                    Text(
+                      "Login",
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
+                    decoration: BoxDecoration(
+                        color: Colors.deepPurple,
+                        borderRadius:
+                            BorderRadius.circular(changeButton ? 50 : 8)),
+                  ),
+                ),
+                // ElevatedButton(
+                //   child: Text("Login"),
+                //   style: TextButton.styleFrom(minimumSize: Size(150, 40)),
+                //   onPressed: () =>
+                //       {Navigator.pushNamed(context, MyRoute.homeRoute)},
+                // )
               ],
             ),
           )
