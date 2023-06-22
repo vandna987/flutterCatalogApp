@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_catalog/pages/home_page.dart';
 import 'package:flutter_catalog/pages/login_page.dart';
 import 'package:flutter_catalog/utils/routes.dart';
+import 'package:flutter_catalog/widgets/contact.dart';
+import 'package:flutter_catalog/widgets/profile.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -24,9 +26,11 @@ class MyApp extends StatelessWidget {
       // darkTheme: ThemeData(brightness: Brightness.dark),
       initialRoute: MyRoute.homeRoute,
       routes: {
-        "/": (context) => LoginPage(),
+        // "/": (context) => LoginPage(),
         MyRoute.homeRoute: (context) => HomePage(),
-        MyRoute.loginRoute: (context) => LoginPage()
+        MyRoute.loginRoute: (context) => LoginPage(),
+        MyRoute.profileRoute: (context) => MyProfile(),
+        MyRoute.contactRoute: (context) => MyContact(),
       },
     );
   }
